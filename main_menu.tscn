@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://2h58xolgejxi"]
 
-[ext_resource type="Texture2D" uid="uid://bgcd0vwwr8ril" path="res://assets/images/saint_rene.png" id="1_jix8l"]
 [ext_resource type="Script" uid="uid://dfayl4kq0sgkg" path="res://scripts/sprite_switch_main.gd" id="1_nlkkf"]
 [ext_resource type="Shader" uid="uid://den7daxe86el2" path="res://shaders/vhs.gdshader" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://dd87xc5cwf5gs" path="res://assets/images/rene.png" id="2_fu7sn"]
 [ext_resource type="Shader" uid="uid://chvb0iy8ovi42" path="res://shaders/glitch.gdshader" id="2_jix8l"]
 [ext_resource type="Script" uid="uid://bcxnjiucwa4l6" path="res://scripts/menu.gd" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://bhdugnsgnfjkp" path="res://assets/images/ren_analog.png" id="3_nlkkf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1af8y"]
 shader = ExtResource("2_jix8l")
@@ -77,9 +77,9 @@ texture = ExtResource("2_fu7sn")
 
 [node name="saintrene" type="Sprite2D" parent="shader_rene" unique_id=463546317]
 visible = false
-position = Vector2(1144, 422)
+position = Vector2(1060, 393)
 scale = Vector2(2, 2)
-texture = ExtResource("1_jix8l")
+texture = ExtResource("3_nlkkf")
 
 [node name="glitch" type="ColorRect" parent="shader_rene" unique_id=1430965757]
 material = SubResource("ShaderMaterial_1af8y")

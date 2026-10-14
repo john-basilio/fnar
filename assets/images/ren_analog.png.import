@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgcd0vwwr8ril"
-path="res://.godot/imported/saint_rene.png-f1a95d2a9ed0093ec6d175720eea1b8b.ctex"
+uid="uid://bhdugnsgnfjkp"
+path="res://.godot/imported/ren_analog.png-3a4d40d16f5d6248ee3ddd6e44b3587f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/saint_rene.png"
-dest_files=["res://.godot/imported/saint_rene.png-f1a95d2a9ed0093ec6d175720eea1b8b.ctex"]
+source_file="res://assets/images/ren_analog.png"
+dest_files=["res://.godot/imported/ren_analog.png-3a4d40d16f5d6248ee3ddd6e44b3587f.ctex"]
 
 [params]
 

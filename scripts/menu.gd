@@ -21,6 +21,6 @@ func handle_click(event: InputEvent, item: Label) -> void:
 	if event.is_pressed() :
 		match item.name:
 			"play":
-				get_tree().change_scene_to_file("res://splash.tscn");
+				get_tree().change_scene_to_file("res://main_loading.tscn");
 			"exit":
 				get_tree().quit();

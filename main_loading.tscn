@@ -1,5 +1,18 @@
 [gd_scene format=3 uid="uid://csc7aktj7vl6m"]
 
+[ext_resource type="Shader" uid="uid://chvb0iy8ovi42" path="res://shaders/glitch.gdshader" id="1_4t46g"]
+[ext_resource type="Script" uid="uid://opeunavhe60l" path="res://scripts/loading.gd" id="1_ehtmq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1af8y"]
+shader = ExtResource("1_4t46g")
+shader_parameter/range = 0.01999999955296
+shader_parameter/noiseQuality = 123.30000183731796
+shader_parameter/noiseIntensity = 4.6581399848477645e-09
+shader_parameter/offsetIntensity = 0.03
+shader_parameter/colorOffsetIntensity = 0.50000002375
+
+[sub_resource type="LabelSettings" id="LabelSettings_1af8y"]
+
 [node name="loading" type="Control" unique_id=1709819424]
 layout_mode = 3
 anchors_preset = 15
@@ -7,8 +20,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ehtmq")
+next_scene = "res://game/start.tscn"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=123448056]
+[node name="bg" type="ColorRect" parent="." unique_id=123448056]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,3 +31,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1294711642]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1935399018]
+material = SubResource("ShaderMaterial_1af8y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="loading" type="Label" parent="." unique_id=925743413]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+label_settings = SubResource("LabelSettings_1af8y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1032746304]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -336.0
+offset_right = 401.45435
+offset_bottom = -309.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.275, 0.275)
+value = 100.0
+show_percentage = false
