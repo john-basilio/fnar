@@ -12,7 +12,6 @@ func _ready() -> void:
 	await anim.animation_finished;
 	timer.start();
 	await timer.timeout;
-	print("post-await")	
 	
 func text_timeout() -> void:
 	anim.play_backwards("fade");

@@ -1,6 +1,53 @@
 [gd_scene format=3 uid="uid://2h58xolgejxi"]
 
-[ext_resource type="Texture2D" uid="uid://bj1128a701bcq" path="res://icon.svg" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://bgcd0vwwr8ril" path="res://assets/images/saint_rene.png" id="1_jix8l"]
+[ext_resource type="Script" uid="uid://dfayl4kq0sgkg" path="res://scripts/sprite_switch_main.gd" id="1_nlkkf"]
+[ext_resource type="Shader" uid="uid://den7daxe86el2" path="res://shaders/vhs.gdshader" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://dd87xc5cwf5gs" path="res://assets/images/rene.png" id="2_fu7sn"]
+[ext_resource type="Shader" uid="uid://chvb0iy8ovi42" path="res://shaders/glitch.gdshader" id="2_jix8l"]
+[ext_resource type="Script" uid="uid://bcxnjiucwa4l6" path="res://scripts/menu.gd" id="3_fu7sn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1af8y"]
+shader = ExtResource("2_jix8l")
+shader_parameter/range = 0.00999999977648
+shader_parameter/noiseQuality = 19.60000029206352
+shader_parameter/noiseIntensity = 0.00200000475313999
+shader_parameter/offsetIntensity = 0.01100000378237998
+shader_parameter/colorOffsetIntensity = 0.0400000019
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fu7sn"]
+shader = ExtResource("2_7vrkn")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.2730000129675
+shader_parameter/resolution = Vector2(1280, 720)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 3.0
+shader_parameter/roll_size = 11.0390005243525
+shader_parameter/roll_variation = 3.36600015662512
+shader_parameter/distort_intensity = 0.014000000665
+shader_parameter/noise_opacity = 0.954000045315
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.02000004845000003
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 2.41
+shader_parameter/vignette_opacity = 0.214000010165
+
+[sub_resource type="LabelSettings" id="LabelSettings_glbon"]
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_0m2eu"]
+font_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_7vrkn"]
+font_size = 30
+outline_size = 3
 
 [node name="Control" type="Control" unique_id=1131882055]
 layout_mode = 3
@@ -10,6 +57,123 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=2077084581]
-position = Vector2(809, 267)
-texture = ExtResource("1_06t4h")
+[node name="bg" type="ColorRect" parent="." unique_id=141523118]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="shader_rene" type="CanvasLayer" parent="." unique_id=1668697712]
+script = ExtResource("1_nlkkf")
+
+[node name="rene" type="Sprite2D" parent="shader_rene" unique_id=1134153481]
+visible = false
+position = Vector2(1207, 783)
+scale = Vector2(3.23, 3.135)
+texture = ExtResource("2_fu7sn")
+
+[node name="saintrene" type="Sprite2D" parent="shader_rene" unique_id=463546317]
+visible = false
+position = Vector2(1144, 422)
+scale = Vector2(2, 2)
+texture = ExtResource("1_jix8l")
+
+[node name="glitch" type="ColorRect" parent="shader_rene" unique_id=1430965757]
+material = SubResource("ShaderMaterial_1af8y")
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -675.0
+grow_horizontal = 0
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="shader_bg" type="CanvasLayer" parent="." unique_id=1465118183]
+
+[node name="shadermaterial" type="ColorRect" parent="shader_bg" unique_id=65817144]
+material = SubResource("ShaderMaterial_fu7sn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="." unique_id=2115343777]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.525
+anchor_top = -3.6
+anchor_right = 3.525
+anchor_bottom = -3.6
+offset_left = -4362.0
+offset_top = 2442.0
+offset_right = -3082.0
+offset_bottom = 3162.0
+text = "Five 
+Nights
+at
+Rene's"
+label_settings = SubResource("LabelSettings_glbon")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="menu" type="Control" parent="." unique_id=649002547]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_fu7sn")
+
+[node name="play" type="Label" parent="menu" unique_id=997339987]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = 40.0
+offset_right = 150.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Play"
+label_settings = SubResource("LabelSettings_0m2eu")
+
+[node name="exit" type="Label" parent="menu" unique_id=257551906]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = 90.0
+offset_right = 150.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Exit"
+label_settings = SubResource("LabelSettings_0m2eu")
+
+[node name="arrow" type="Label" parent="menu" unique_id=89412301]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 100.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ">>"
+label_settings = SubResource("LabelSettings_7vrkn")
